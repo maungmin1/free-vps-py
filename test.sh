@@ -102,8 +102,8 @@ if [ "$MODE_CHOICE" = "1" ]; then
     sed -i "s/UUID = os.environ.get('UUID', '[^']*')/UUID = os.environ.get('UUID', '$UUID_INPUT')/" app.py
     echo -e "${GREEN}UUID 已设置为: $UUID_INPUT${NC}"
     
-    sed -i "s/CFIP = os.environ.get('CFIP', '[^']*')/CFIP = os.environ.get('CFIP', 'joeyblog.net')/" app.py
-    echo -e "${GREEN}优选IP已自动设置为: joeyblog.net${NC}"
+    sed -i "s/CFIP = os.environ.get('CFIP', '[^']*')/CFIP = os.environ.get('CFIP', 'www.visa.com')/" app.py
+    echo -e "${GREEN}优选IP已自动设置为: www.visa.com${NC}"
     
     echo
     echo -e "${GREEN}极速配置完成！正在启动服务...${NC}"
@@ -137,9 +137,9 @@ else
     fi
 
     echo -e "${YELLOW}当前优选IP: $(grep "CFIP = " app.py | cut -d"'" -f4)${NC}"
-    read -p "请输入优选IP/域名 (留空使用默认 joeyblog.net): " CFIP_INPUT
+    read -p "请输入优选IP/域名 (留空使用默认 www.visa.com): " CFIP_INPUT
     if [ -z "$CFIP_INPUT" ]; then
-        CFIP_INPUT="joeyblog.net"
+        CFIP_INPUT="www.visa.com"
     fi
     sed -i "s/CFIP = os.environ.get('CFIP', '[^']*')/CFIP = os.environ.get('CFIP', '$CFIP_INPUT')/" app.py
     echo -e "${GREEN}优选IP已设置为: $CFIP_INPUT${NC}"
